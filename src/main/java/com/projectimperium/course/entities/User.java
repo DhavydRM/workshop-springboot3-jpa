@@ -2,8 +2,18 @@ package com.projectimperium.course.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+
+@Entity 
+@Table(name = "tb_user") //Cria uma tabela "tb_user pois o "User" é uma palavra reservada
 public class User implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Diz que meu ID é autoincrementado
     private Long id;
     private String name;
     private String email;
