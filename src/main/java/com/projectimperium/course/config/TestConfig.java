@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.projectimperium.course.entities.Order;
 import com.projectimperium.course.entities.OrderItem;
+import com.projectimperium.course.entities.Payment;
 import com.projectimperium.course.entities.Product;
 import com.projectimperium.course.entities.User;
 import com.projectimperium.course.entities.enums.OrderStatus;
@@ -80,6 +81,11 @@ public class TestConfig implements CommandLineRunner {
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
+        Payment pay1 = new Payment(null, Instant.parse("2025-07-22T23:00:10Z"), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
     }
 
 }
