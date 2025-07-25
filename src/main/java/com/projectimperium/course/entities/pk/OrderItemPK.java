@@ -9,7 +9,7 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Embeddable
+@Embeddable // Clase que vai ter mais de um chave primaria
 public class OrderItemPK implements Serializable{
     
     @ManyToOne

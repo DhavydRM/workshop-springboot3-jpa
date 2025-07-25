@@ -27,16 +27,16 @@ public class Order implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT") // Formatando data que será mandada na requisição
     private Instant moment;
 
     private Integer orderStatus;
     
-    @ManyToOne
-    @JoinColumn(name = "client_id")
+    @ManyToOne // Relação muitos para 1
+    @JoinColumn(name = "client_id") // Adiciona uma coluna dentro do banco de dados com o ID do cliente que fez o pedido
     private User client;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL) // Relação 1 para 1, mapeada pelo atributo "order"
     private Payment payment;
 
     @OneToMany(mappedBy = "id.order")

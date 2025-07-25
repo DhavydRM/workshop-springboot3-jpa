@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable{
 
-    @EmbeddedId
+    @EmbeddedId // Mais de uma coluna como chave primária
     private OrderItemPK id = new OrderItemPK();
     
     private Integer quantity;

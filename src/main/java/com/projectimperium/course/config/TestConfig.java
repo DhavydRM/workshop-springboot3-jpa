@@ -22,10 +22,10 @@ import com.projectimperium.course.repositories.UserRepository;
 import com.projectimperium.course.entities.Category;
 
 @Configuration
-@Profile("test")
+@Profile("test") // Perfil de testes do Spring Boot
 public class TestConfig implements CommandLineRunner {
      
-    @Autowired
+    @Autowired // Injeção de dependência do  Spring
     private UserRepository userRepository;
 
     @Autowired
@@ -53,7 +53,7 @@ public class TestConfig implements CommandLineRunner {
         Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
         Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 
-        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3)); // Salvar tudo no Banco de Dados
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
         p1.getCategories().add(cat2);

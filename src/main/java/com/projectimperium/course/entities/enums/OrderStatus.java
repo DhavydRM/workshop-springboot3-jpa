@@ -2,7 +2,7 @@ package com.projectimperium.course.entities.enums;
 
 public enum OrderStatus {
     
-    WAITING_PAYMENT(1),
+    WAITING_PAYMENT(1), // Define que cada elemento é referenciado por um codigo
     PAID(2),
     SHIPPED(3),
     DELIVERED(4),

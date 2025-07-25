@@ -13,19 +13,19 @@ import com.projectimperium.course.entities.Category;
 import com.projectimperium.course.services.CategoryServices;
 
 @RestController
-@RequestMapping(value = "/categories")
+@RequestMapping(value = "/categories") // Classe usada para controlar as operações usando o endpoin /categories
 public class CategoryResource {
     
     @Autowired
     private CategoryServices service;
 
-    @GetMapping
+    @GetMapping // Metodo GET
     public ResponseEntity<List<Category>> findAll() {
         List<Category> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}") // GET passando um /ID
     public ResponseEntity<Category> findById(@PathVariable Long id) {
         Category obj = service.findById(id);
         return ResponseEntity.ok().body(obj);

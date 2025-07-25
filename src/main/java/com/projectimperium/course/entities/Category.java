@@ -13,17 +13,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "tb_category")
+@Entity // Anotação para mapear as entidades no Spring
+@Table(name = "tb_category") // Cria a tabela no banco de dados com esse nome
 public class Category implements Serializable{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Identifica que esse é o ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Id é definido para ser autoincrementado
     private Long id;
     private String name;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "categories")
+    @JsonIgnore // Impede que seja passado os produtos que estão cadastrados em uma categoria
+    @ManyToMany(mappedBy = "categories") // Relação muitos para muitos, mapeada pelo atributo "categories" na classe products
     private Set<Product> products = new HashSet<>();
 
     public Category(){
